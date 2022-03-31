@@ -11,10 +11,6 @@ module.exports = function() {
             use: 'handlebars-loader'
         },
         {
-            test: /\.scss$/,
-            loader: ['style-loader', 'css-loader', 'sass-loader']
-        },
-        {
             test: /\.(jpe?g|png|gif|svg|)$/i,
             use: 'file-loader?name=images/[hash].[ext]'
         },

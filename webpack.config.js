@@ -3,15 +3,12 @@ let rules = require('./webpack.config.rules.js')();
 let UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 let HtmlPlugin = require('html-webpack-plugin');
 let CleanWebpackPlugin = require('clean-webpack-plugin');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 rules.push({
-    test: /\.css$/,
-    use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: 'css-loader'
-    })
-})
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      })
 
 module.exports = {
     entry: {
@@ -48,7 +45,7 @@ module.exports = {
             title: 'GeoReview',
             template: 'index.hbs'
         }),
-        new ExtractTextPlugin('style.css'),
+        new MiniCssExtractPlugin(),
         new CleanWebpackPlugin(['dist'])
     ]
 }
