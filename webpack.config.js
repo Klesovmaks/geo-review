@@ -12,7 +12,7 @@ rules.push({
 
 module.exports = {
     entry: {
-        index: './src/index.js'
+        index: ['regenerator-runtime/runtime.js', './src/index.js']
     },
     output: {
         filename: '[name].[hash].js',

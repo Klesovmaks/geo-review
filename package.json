@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --progress --colors --mode production",
     "watch": "webpack serve --progress --open --mode development",
-    "start": "yarn watch"
+    "start": "npm run watch"
   },
   "license": "MIT",
   "devDependencies": {
@@ -33,5 +33,9 @@
     "webpack": "^5.10.1",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "regenerator-runtime": "^0.13.9"
   }
 }
