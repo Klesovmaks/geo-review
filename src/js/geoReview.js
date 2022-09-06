@@ -20,8 +20,7 @@ export default class GeoReview {
   }
 
   async callApi(method, body = {}) {
-    const res = await fetch(`http://localhost:8181/geo-review/${method}`, {
-      mode: 'no-cors',
+    const res = await fetch(`http://localhost:8181/geo-review-3/${method}`, {
       method: 'post',
       body: JSON.stringify(body),
     });

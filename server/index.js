@@ -24,6 +24,9 @@ function createServer() {
   http
     .createServer(async (req, res) => {
       res.setHeader('content-type', 'application/json');
+      res.setHeader('Access-Control-Allow-Origin','*');
+      res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+      res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
 
       console.log('>', req.method, req.url);
 
@@ -35,12 +38,12 @@ function createServer() {
       try {
         const body = await readBody(req);
 
-        if (req.url === '/coords') {
+        if (req.url === '/geo-review-3/coords') {
           end(res, storage.getCoords());
-        } else if (req.url === '/add') {
+        } else if (req.url === '/geo-review-3/add') {
           storage.add(body);
           end(res, { ok: true });
-        } else if (req.url === '/list') {
+        } else if (req.url === '/geo-review-3/list') {
           end(res, storage.getByCoords(body.coords));
         } else {
           end(res, {});
